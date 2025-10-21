@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembelajaran Cloud Computing - SMK PANCA BHAKTI RAKIT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .alanganteng {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #333;
+            margin: 0 auto 20px;
+        }
+        
+        .alanganteng img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-left: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+        }
+        
+        .logo-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #a8d0ff;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #2a5298;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #1e3c72;
+        }
+        
+        /* Profil Siswa */
+        .profile {
+            background-color: white;
+            padding: 50px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .profile h2 {
+            color: #1e3c72;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .profile-card {
+            background-color: #f0f5ff;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .profile-card h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .profile-info {
+            text-align: left;
+            margin-top: 20px;
+        }
+        
+        .profile-info p {
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        /* Materi Pembelajaran */
+        .learning {
+            padding: 70px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #1e3c72;
+            margin-bottom: 50px;
+            font-size: 2rem;
+        }
+        
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .learning-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .learning-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-icon {
+            background-color: #1e3c72;
+            color: white;
+            font-size: 2.5rem;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .card-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-content h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+        
+        /* Keunggulan Cloud */
+        .advantages {
+            background-color: #f0f5ff;
+            padding: 70px 0;
+        }
+        
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .advantage-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .advantage-icon {
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1e3c72;
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #d0d9f0;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #2a5298;
+            color: #d0d9f0;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsif */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .alanganteng {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .profile-card {
+                padding: 20px;
+            }
+            
+            .learning-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .profile h2 {
+                font-size: 1.6rem;
+            }
+            
+            .profile-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="https://smkpabhara.sch.id/img/logo.webp" alt="Logo SMK Panca Bhakti Rakit">
+                </div>
+                <h1>Cloud Learning Center</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#profile">Profil</a></li>
+                    <li><a href="#learning">Materi</a></li>
+                    <li><a href="#advantages">Keunggulan</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Pembelajaran Cloud Computing</h2>
+            <p>Pelajari teknologi cloud computing yang sedang berkembang pesat dan menjadi kebutuhan di era digital saat ini. Kuasai keterampilan yang dibutuhkan untuk karier di bidang IT.</p>
+            <a href="#learning" class="btn">Mulai Belajar</a>
+        </div>
+    </section>
+
+    <!-- Profil Siswa -->
+    <section class="profile" id="profile">
+        <div class="container">
+            <h2>Profil Siswa</h2>
+          
+            <div class="profile-card">
+                <div class="alanganteng">
+                    <img src="https://avatars.githubusercontent.com/u/160713810?u=b78d5c5199fe8ddc2a0b15f324102403622c713d&v=4" alt="Foto Ramadhani">
+                </div>
+                <h3>Ramadhani</h3>
+                <div class="profile-info">
+                    <p><strong>Kelas:</strong> XII TKJ 2</p>
+                    <p><strong>Sekolah:</strong> SMK PANCA BHAKTI RAKIT</p>
+                    <p><strong>Jurusan:</strong> Teknik Komputer dan Jaringan</p>
+                    <p><strong>Minat:</strong> Cloud Computing, Jaringan, dan Keamanan Siber</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="learning" id="learning">
+        <div class="container">
+            <h2 class="section-title">Materi Pembelajaran Cloud</h2>
+            <div class="learning-grid">
+                <div class="learning-card">
+                    <div class="card-icon">☁️</div>
+                    <div class="card-content">
+                        <h3>Pengenalan Cloud Computing</h3>
+                        <p>Memahami konsep dasar cloud computing, model layanan (IaaS, PaaS, SaaS), dan model deployment (public, private, hybrid cloud).</p>
+                    </div>
+                </div>
+                <div class="learning-card">
+                    <div class="card-icon">🛠️</div>
+                    <div class="card-content">
+                        <h3>Infrastruktur Cloud</h3>
+                        <p>Mempelajari komponen infrastruktur cloud seperti virtualisasi, storage, jaringan, dan manajemen resource.</p>
+                    </div>
+                </div>
+                <div class="learning-card">
+                    <div class="card-icon">🔒</div>
+                    <div class="card-content">
+                        <h3>Keamanan Cloud</h3>
+                        <p>Memahami prinsip keamanan dalam cloud computing, enkripsi data, manajemen identitas, dan akses kontrol.</p>
+                    </div>
+                </div>
+                <div class="learning-card">
+                    <div class="card-icon">📊</div>
+                    <div class="card-content">
+                        <h3>Layanan Cloud Platform</h3>
+                        <p>Mengenal layanan cloud dari provider seperti AWS, Google Cloud, Microsoft Azure, dan implementasinya.</p>
+                    </div>
+                </div>
+                <div class="learning-card">
+                    <div class="card-icon">🚀</div>
+                    <div class="card-content">
+                        <h3>DevOps & Cloud</h3>
+                        <p>Mempelajari integrasi pengembangan perangkat lunak dengan operasi IT menggunakan teknologi cloud.</p>
+                    </div>
+                </div>
+                <div class="learning-card">
+                    <div class="card-icon">💡</div>
+                    <div class="card-content">
+                        <h3>Studi Kasus & Praktik</h3>
+                        <p>Implementasi nyata penggunaan cloud computing dalam berbagai skenario bisnis dan teknologi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="advantages" id="advantages">
+        <div class="container">
+            <h2 class="section-title">Keunggulan Cloud Computing</h2>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div class="advantage-icon">💰</div>
+                    <h3>Efisiensi Biaya</h3>
+                    <p>Mengurangi biaya infrastruktur IT dengan model pay-as-you-go.</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">⚡</div>
+                    <h3>Skalabilitas</h3>
+                    <p>Mudah menyesuaikan kapasitas sesuai kebutuhan bisnis.</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">🌐</div>
+                    <h3>Akses Global</h3>
+                    <p>Akses data dan aplikasi dari mana saja dengan koneksi internet.</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">🛡️</div>
+                    <h3>Keandalan</h3>
+                    <p>Redundansi data dan backup otomatis meningkatkan keandalan sistem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tentang Kami</h3>
+                    <p>Platform pembelajaran cloud computing untuk siswa SMK yang ingin mengembangkan keterampilan di bidang teknologi cloud.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <p>Email: alanstore@alanstore.id</p>
+                    <p>Telepon: 6288980668931</p>
+                    <p>Alamat: Jl. Pendidikan No. 123, Jakarta</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Link Cepat</h3>
+                    <a href="#home">Beranda</a>
+                    <a href="#profile">Profil</a>
+                    <a href="#learning">Materi</a>
+                    <a href="#advantages">Keunggulan</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Cloud Learning Center - SMK PANCA BHAKTI RAKIT. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+  </html>
